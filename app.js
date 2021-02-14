@@ -4,6 +4,7 @@ const galleryHeader = document.querySelector('.gallery-header');
 const searchBtn = document.getElementById('search-btn');
 const sliderBtn = document.getElementById('create-slider');
 const sliderContainer = document.getElementById('sliders');
+const search = document.getElementById('search');
 // selected image 
 let sliders = [];
 
@@ -119,7 +120,14 @@ searchBtn.addEventListener('click', function () {
   getImages(search.value)
   sliders.length = 0;
 })
-
+search.addEventListener('keypress', function (e) {
+  var key = e.which;
+   if(key == 13)  // the enter key code
+    {
+      searchBtn.click();
+      return false;  
+    }
+});
 const checkDuration = () => {
   const duration = document.getElementById('duration');
   if(isNaN(duration.value)){
