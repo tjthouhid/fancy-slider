@@ -130,6 +130,16 @@ const changeSlide = (index) => {
 
   items[index].style.display = "block"
 }
+sliderContainer.addEventListener('mouseenter', function () {
+  clearInterval(timer);
+});
+sliderContainer.addEventListener('mouseleave', function () {
+  const duration = document.getElementById('duration').value || 1000;
+  timer = setInterval(function () {
+    slideIndex++;
+    changeSlide(slideIndex);
+  }, duration);
+});
 
 searchBtn.addEventListener('click', function () {
   document.querySelector('.main').style.display = 'none';
