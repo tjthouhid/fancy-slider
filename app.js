@@ -54,6 +54,9 @@ const createSlider = () => {
     alert('Select at least 2 image.')
     return;
   }
+  if(!checkDuration()){
+    return;
+  }
   // crate slider previous next area
   sliderContainer.innerHTML = '';
   const prevNext = document.createElement('div');
@@ -116,6 +119,24 @@ searchBtn.addEventListener('click', function () {
   getImages(search.value)
   sliders.length = 0;
 })
+
+const checkDuration = () => {
+  const duration = document.getElementById('duration');
+  if(isNaN(duration.value)){
+    alert('Please Enter Only Number on Duration.');
+    return false;
+  }else{
+    if(duration.value<0){
+      alert('Please Enter Only Value More than zero on Duration.');
+      return false;
+    }else{
+      return true;
+    }
+    
+  }
+};
+
+
 
 sliderBtn.addEventListener('click', function () {
   createSlider()
