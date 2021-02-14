@@ -59,8 +59,8 @@ const selectItem = (event, img) => {
     sliders_text.splice(item, 1);
     //alert('Hey, Already added !')
   }
-  console.log(sliders);
-  console.log(sliders_text);
+  //console.log(sliders);
+  //console.log(sliders_text);
 }
 var timer
 const createSlider = () => {
