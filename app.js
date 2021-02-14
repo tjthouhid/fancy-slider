@@ -39,13 +39,17 @@ const getImages = (query) => {
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
-  element.classList.add('added');
+  
  
   let item = sliders.indexOf(img);
+  
   if (item === -1) {
+    element.classList.add('added');
     sliders.push(img);
   } else {
-    alert('Hey, Already added !')
+    element.classList.remove('added');
+    sliders.splice(item, 1);
+    //alert('Hey, Already added !')
   }
 }
 var timer
